@@ -93,6 +93,20 @@ $tasks = mysqli_fetch_all($result, MYSQLI_ASSOC);
         }
     </style>
 </head>
+<nav>
+    <img class="logo" src="../img/logo.png" alt="">
+    <div class="nav-links">
+        <a href="add.php">Adicionar nova tarefa</a>
+        <?php
+        if (isset($_SESSION['id_sessao'])) {
+            echo '<a href="logout.php">Sair</a>';
+        } else {
+            echo '<a href="login.php">Entrar</a>';
+        }
+        ?>
+        <img src="../img/user.webp" alt="Usuário" class="user-avatar">
+    </div>
+</nav>
 
 <body>
     <?php if (isset($_SESSION['editado'])): ?>
@@ -107,14 +121,6 @@ $tasks = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <?php unset($_SESSION['editado']);
     endif; ?>
 
-    <nav>
-        <img class="logo" src="../img/logo.png" alt="">
-        <div class="nav-links">
-            <a href="add.php">Adioionar nova tarefa</a>
-            <a href="#">Olá</a>
-            <img src="img/usuario.jpg" alt="Usuário" class="user-avatar">
-        </div>
-    </nav>
 
     <h1 style="font-size: 40px">Lista de Tarefas</h1>
 
